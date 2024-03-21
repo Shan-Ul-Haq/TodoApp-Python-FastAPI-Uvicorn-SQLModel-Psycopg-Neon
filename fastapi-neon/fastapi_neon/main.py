@@ -78,7 +78,7 @@ def update_todo(todo_id: int, todo: Todo, session: Annotated[Session, Depends(ge
     return todo_query
 
 
-#     delete a todo from the database and return it
+# delete a todo from the database and return it
 @app.delete("/todos/{todo_id}")
 def delete_todo(todo_id: int, session: Annotated[Session, Depends(get_session)]):
     todo_query = session.exec(select(Todo).where(Todo.id == todo_id)).first()
